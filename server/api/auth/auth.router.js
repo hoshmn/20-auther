@@ -48,6 +48,24 @@ router.post('/signup', function (req, res, next) {
   .catch(next);
 });
 
+router.put('/logout', function(req,res,next){
 
+  var userId = req.body
+
+  req.session.userId = null;
+
+  res.sendStatus(204)
+
+  // console.log('\n\n$$$$$$ User id:' + userId)
+  // console.log('\n\nreq.session...' + req.session.userId)
+
+})
 
 module.exports = router;
+
+
+
+
+
+
+

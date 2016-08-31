@@ -17,7 +17,7 @@ router.param('id', function (req, res, next, id) {
 });
 
 router.get('/', function (req, res, next) {
-  console.log('hello',req.session.cookie);
+  console.log('hello',req.session);
   User.findAll({})
   .then(function (users) {
     res.json(users);
