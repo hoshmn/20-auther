@@ -1,12 +1,14 @@
-app.factory('AuthFactory',function($http, $log){
+app.factory('AuthFactory',function($http, $log, $state){
 
 
 	this.login = function(user){
-		console.log(user);
 		return $http.post('/api/auth/login', user)
 		.then(function(x){
-			console.log('x',x,'xcon',x.config.data);
-		});
+			// console.log(x);
+			$state.go('home')
+		}).catch(function(error){
+			alert('Yo WTF')
+		})
 	};
 
 

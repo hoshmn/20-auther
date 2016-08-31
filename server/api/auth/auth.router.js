@@ -12,14 +12,16 @@ router.get('/login', function(req,res,next){
 });
 
 router.post('/login', function (req, res, next) {
-	console.log('!!!!!!!!!!!!!!!!!!!!!!!!!',req.body);
+	console.log(req.body);
   User.findOne({
     where: req.body
   })
   .then(function (user) {
     if (!user) {
+      console.log("USER IS NOT VALID!")
       res.sendStatus(401);
     } else {
+      console.log("USER IS VALID!")
       req.session.userId = user.id;
       res.sendStatus(204);
     }
